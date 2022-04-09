@@ -13,7 +13,7 @@ public class TestUserC {
     @GetMapping("/Hello")
     public String hello()
     {
-        return "hello ka    jjjj";
+        return "Hello world";
     }
 
     List<User> users = new ArrayList<>();
