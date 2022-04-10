@@ -2,7 +2,14 @@ pipeline {
     agent any
     stages {
 
+stage('Deploye TO Dev') {
+             steps{
+                build job:"DeployToDev"
+                 parameters: [
+                        string(name: 'COMMIT_NO', value: String.valueOf(GIT_COMMIT)),
+                    ]
 
+}}
 
         stage('Compile') {
              steps{
@@ -50,11 +57,7 @@ stage('Archive Build') {
 
 }}
 
-stage('Deploye TO Dev') {
-             steps{
-                build job:"DeployToDev"
 
-}}
 
 
 }
