@@ -1,6 +1,7 @@
 package com.example.demo;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,10 +11,13 @@ import java.util.List;
 @RestController
 public class TestUserC {
 
+    @Value("${env}")
+    private String message;
+
     @GetMapping("/Hello")
     public String hello()
     {
-        return "Hello world feautre";
+        return "Hello world "+message;
     }
 
     List<User> users = new ArrayList<>();

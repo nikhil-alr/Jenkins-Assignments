@@ -39,18 +39,7 @@
 
 	</dependencies>
 
-	<distributionManagement>
-		<repository>
-			<id>central</id>
-			<name>a0r6qcuk5tja9-artifactory-primary-0-releases</name>
-			<url>https://nikhilalr.jfrog.io/artifactory/default-maven-local</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>a0r6qcuk5tja9-artifactory-primary-0-snapshots</name>
-			<url>https://nikhilalr.jfrog.io/artifactory/default-maven-local</url>
-		</snapshotRepository>
-	</distributionManagement>
+
 
 	<build>
 		<plugins>
