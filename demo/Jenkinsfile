@@ -1,0 +1,63 @@
+pipeline {
+    agent any
+    stages {
+
+
+
+        stage('Compile') {
+             steps{
+                dir("demo")
+                {
+                   bat("mvn clean install -DskipTests")
+                }
+
+
+
+}}
+
+
+
+stage('Running Unit Test') {
+             steps{
+                dir("demo")
+                {
+                   bat("mvn test -Punit")
+                }
+
+
+
+}}
+
+stage('Running Integration Test') {
+             steps{
+                dir("demo")
+                {
+                   bat("mvn test -Pintegration")
+                }
+
+
+
+}}
+
+stage('Archive Build') {
+             steps{
+                dir("demo")
+                {
+                   bat("mvn package")
+                }
+
+
+
+}}
+
+stage('Deploye TO Dev') {
+             steps{
+                build job:"DeployToDev"
+
+}}
+
+
+}
+}
+
+
