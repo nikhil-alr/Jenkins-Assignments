@@ -18,19 +18,16 @@ pipeline {
 
 
 stage('Running Unit Test') {
-             try {
+             steps{
                 dir("demo")
                 {
                    bat("mvn test -Punit")
                 }
 
-                                    } catch(err) {
-                                        step([$class: 'JUnitResultArchiver', testResults:
-                                          '**/target/surefire-reports/TEST-*UnitTest.xml'])
-                                        throw err
-                                    }
 
-}
+
+
+}}
 
 stage('Running Integration Test') {
              steps{
