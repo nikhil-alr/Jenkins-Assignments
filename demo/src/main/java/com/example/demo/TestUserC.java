@@ -17,7 +17,7 @@ public class TestUserC {
     @GetMapping("/Hello")
     public String hello()
     {
-        return "Hello "+message;
+        return "Hello world "+message;
     }
 
     List<User> users = new ArrayList<>();

@@ -21,8 +21,15 @@ stage('Running Unit Test') {
              steps{
                 dir("demo")
                 {
-                   bat("mvn test -Punit")
+                   try {
+                                                         bat("mvn test -Punit")
+                                                     } catch(err) {
+                                                         step([$class: 'JUnitResultArchiver', testResults:
+                                                           '**/target/surefire-reports/TEST-*UnitTest.xml'])
+                                                         throw err
+                                                     }
                 }
+
 
 
 
