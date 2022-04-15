@@ -18,18 +18,11 @@ pipeline {
 
 
 stage('Running Unit Test') {
-             try {steps{
+             try {
                 dir("demo")
                 {
                    bat("mvn test -Punit")
                 }
-
-
-
-
-}
-
-
 
                                     } catch(err) {
                                         step([$class: 'JUnitResultArchiver', testResults:
